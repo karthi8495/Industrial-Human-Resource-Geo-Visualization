@@ -11,14 +11,10 @@ The dataset contains state-wise counts of main and marginal workers, both males 
 ## Exploratory Data Analysis (EDA) Insights
 
 ### Data Loading:
-1.Utilized Pandas to load and concatenate multiple CSV files.
-2.Cleaned and standardized column names to ensure consistency.
+Utilized Pandas to load and concatenate multiple CSV files.Cleaned and standardized column names to ensure consistency.
 ### Data Cleaning:
-Addressed missing values and outliers.
-Removed unnecessary characters and columns.
+Addressed missing values and outliers.Removed unnecessary characters and columns.
 ### Visualization:
-Leveraged Seaborn and Matplotlib for data visualization.
-Created box plots, scatter plots, and histograms to understand the data distribution.
+Leveraged Seaborn and Matplotlib for data visualization.Created box plots, scatter plots, and histograms to understand the data distribution.
 ### Geospatial Analysis:
-Incorporated latitude and longitude information for geographical insights.
-Handled missing values and outliers in location data.
+Incorporated latitude and longitude information for geographical insights.Handled missing values and outliers in location data.
