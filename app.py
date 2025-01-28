@@ -115,3 +115,31 @@ fig.update_layout(barmode='group', xaxis_title='State', yaxis_title='Total Worke
 
 # Display the chart
 st.plotly_chart(fig)
+
+
+
+# Geo-Map Visualization
+data = pd.read_csv("D:\\GUVI AI & ML\\Capstoneproject5_Placement_Projects\\Code\\final_file_hr.csv")
+
+state_data = data[(data['State'] == selected_state)]
+district_data = data[(data['District'] == selected_district)]
+
+folium_map = folium.Map(location=[28.6139, 77.2090], zoom_start=5)
+
+marker_cluster = MarkerCluster().add_to(folium_map)
+
+for idx, row in state_data.iterrows():
+    lat, lon = row['latitude'], row['longitude']
+    total_workers = row['MainWorkersTotalPersons']
+    male_female_ratio = row['MaleFemaleRatio']
+    popup_text = f"State: {selected_state}<br>District: {selected_district}<br>Total Workers: {total_workers}<br>Male-Female Ratio: {male_female_ratio}"
+    folium.Marker([lat, lon], popup=popup_text).add_to(marker_cluster)
+
+for idx, row in district_data.iterrows():
+    lat, lon = row['latitude'], row['longitude']
+    total_workers = row['MainWorkersTotalPersons']
+    male_female_ratio = row['MaleFemaleRatio']
+    popup_text = f"State: {selected_state}<br>District: {selected_district}<br>Total Workers: {total_workers}<br>Male-Female Ratio: {male_female_ratio}"
+    folium.Marker([lat, lon], popup=popup_text).add_to(marker_cluster)
+
+st.components.v1.html(folium_map._repr_html_(), width=1200, height=500)
